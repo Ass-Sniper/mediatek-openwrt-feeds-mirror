@@ -1,0 +1,37 @@
+name: Sync MediaTek OpenWrt Feed
+
+on:
+  schedule:
+    - cron: "0 2 * * *"   # 每天凌晨 2 点自动同步
+  workflow_dispatch:       # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout workspace
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up SSH for GitHub push
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
+
+      - name: Clone MediaTek feed
+        run: |
+          echo "Cloning MTK feed..."
+          git clone --mirror https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds mtk.git
+
+      - name: Push mirror to GitHub
+        run: |
+          cd mtk.git
+          echo "Adding GitHub remote..."
+          git remote add github git@github.com:Ass-Sniper/mediatek-openwrt-feeds-mirror.git
+
+          echo "Pushing mirror..."
+          git push --mirror github
+
+          echo "Mirror sync completed!"
