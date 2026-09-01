@@ -139,9 +139,9 @@ src-git mtk_openwrt_feed https://ghproxy.com/https://git01.mediatek.com/openwrt/
 
 ---
 
-# 建议你采用的最终操作（推荐）
+# 最终操作
 
-我给你一键脚本，把 MTK feed 镜像到 GitHub：
+一键脚本，把 MTK feed 镜像到 GitHub：
 
 ```bash
 git clone --mirror https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-feeds
