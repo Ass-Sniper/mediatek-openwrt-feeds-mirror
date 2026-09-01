@@ -3,8 +3,8 @@ MTK 的 feed 仓库 mirror 到 GitHub
 
 
 
-👉 **OpenWrt 官方 feeds（telephony、packages 等）速度很快**
-👉 **唯独 MediaTek 的 mtk_openwrt_feed（git01.mediatek.com）一直非常慢**
+**OpenWrt 官方 feeds（telephony、packages 等）速度很快**
+**唯独 MediaTek 的 mtk_openwrt_feed（git01.mediatek.com）一直非常慢**
 
 这是所有 MTK SDK 使用者普遍遇到的问题，不是你的代理、网络、Git 设置的问题。
 
@@ -12,7 +12,7 @@ MTK 的 feed 仓库 mirror 到 GitHub
 
 ---
 
-# 🚨 **原因 1：git01.mediatek.com 位于台湾/新加坡机房，带宽非常小 & 限流严重**
+# **原因 1：git01.mediatek.com 位于台湾/新加坡机房，带宽非常小 & 限流严重**
 
 MediaTek 的 OpenWrt feed 仓库并不是 CDN，也不是 GitHub、GitLab 这种拥有全球加速的服务，而是：
 
@@ -26,7 +26,7 @@ MediaTek 的 OpenWrt feed 仓库并不是 CDN，也不是 GitHub、GitLab 这种
 
 ---
 
-# 🚨 **原因 2：git01.mediatek.com 对代理不友好（CDN 没法加速）**
+# **原因 2：git01.mediatek.com 对代理不友好（CDN 没法加速）**
 
 即使你开代理：
 
@@ -46,7 +46,7 @@ remote: Finding sources: 100% (47/47)
 
 ---
 
-# 🚨 **原因 3：MediaTek feed 仓库体积不大，但服务器会对 clone 做限速**
+# **原因 3：MediaTek feed 仓库体积不大，但服务器会对 clone 做限速**
 
 即使仅有几十个对象：
 
@@ -64,7 +64,7 @@ remote: Finding sources: 100% (47/47)
 
 ---
 
-# 🎯 为什么 telephony / packages 很快？
+# 为什么 telephony / packages 很快？
 
 ```
 git.openwrt.org
@@ -83,7 +83,7 @@ gitlab.com
 
 ---
 
-# 💡 **实际原因总结（非常重要）**
+# **实际原因总结（非常重要）**
 
 **mtk_openwrt_feed 慢不是你的配置问题，是 MediaTek Git 服务器本身慢。
 所有人都一样慢。**
@@ -95,7 +95,7 @@ Literally:
 
 # 🛠 解决方案（从最有效到最简单）
 
-## 🥇 **方案 1：自己在 GitHub/GitLab 上建立镜像（最推荐）**
+## **方案 1：自己在 GitHub/GitLab 上建立镜像（最推荐）**
 
 你可以把 MTK 的 feed 仓库 mirror 到 GitHub：
 
@@ -117,11 +117,11 @@ src-git mtk_openwrt_feed https://git01.mediatek.com/openwrt/feeds/mtk-openwrt-fe
 src-git mtk_openwrt_feed https://github.com/你的ID/mtk-openwrt-feeds.git
 ```
 
-⚡ 加速效果：**几十倍**
+ 加速效果：**几十倍**
 
 ---
 
-## 🥈 **方案 2：使用 git 镜像工具（ghproxy / hub.fastgit / cnproxy）**
+## **方案 2：使用 git 镜像工具（ghproxy / hub.fastgit / cnproxy）**
 
 例如：
 
@@ -133,7 +133,7 @@ src-git mtk_openwrt_feed https://ghproxy.com/https://git01.mediatek.com/openwrt/
 
 ---
 
-## 🥉 **方案 3：使用 `git clone --depth=1`（但不适用 feed update）**
+##  **方案 3：使用 `git clone --depth=1`（但不适用 feed update）**
 
 因为 feed update 需要完整仓库，这个方法有限。
 
