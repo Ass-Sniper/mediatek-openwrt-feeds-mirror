@@ -1,8 +1,8 @@
 name: Sync MediaTek OpenWrt Feed
 
 on:
-  schedule:
-    - cron: "0 2 * * *"   # 每天凌晨 2 点自动同步
+  #schedule:
+  #  - cron: "0 2 * * *"   # 每天凌晨 2 点自动同步
   workflow_dispatch:       # 允许手动触发
 
 jobs:
