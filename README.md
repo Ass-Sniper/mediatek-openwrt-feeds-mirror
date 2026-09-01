@@ -93,7 +93,7 @@ Literally:
 
 ---
 
-# 🛠 解决方案（从最有效到最简单）
+# 解决方案（从最有效到最简单）
 
 ## **方案 1：自己在 GitHub/GitLab 上建立镜像（最推荐）**
 
@@ -139,7 +139,7 @@ src-git mtk_openwrt_feed https://ghproxy.com/https://git01.mediatek.com/openwrt/
 
 ---
 
-# ✔ 建议你采用的最终操作（推荐）
+# 建议你采用的最终操作（推荐）
 
 我给你一键脚本，把 MTK feed 镜像到 GitHub：
 
